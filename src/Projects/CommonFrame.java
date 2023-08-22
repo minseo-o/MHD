@@ -20,9 +20,11 @@ public class CommonFrame extends JFrame {
 		setLayout(null);
 	}
 	
+	
 	public ImageIcon getIcon(String path, int w, int h) {
 		return new ImageIcon(Toolkit.getDefaultToolkit().getImage(path).getScaledInstance(w, h, Image.SCALE_SMOOTH));
 	}
+	
 }
 class ImagePanel extends JPanel {
     private Image img;

@@ -14,5 +14,4 @@ public class Main {
 		new Start().setVisible(true);
 		
 	}
-	
 }
