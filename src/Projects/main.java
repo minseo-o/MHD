@@ -3,8 +3,12 @@ package Projects;
 public class main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		try {
+			new DatabaseConnection();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		new frame();
 	}
 
 }
