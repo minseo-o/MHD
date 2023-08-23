@@ -12,7 +12,7 @@ public class Patient_Check extends CommonFrame {
 		
 	    
 		
-		JLabel lb = new JLabel(getIcon("images/dc_pt.png", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT));
+		JLabel lb = new JLabel(getIcon("images/Doctor_Patient_Check.png", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT));
 	      lb.setBounds(0, 0, Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
 	      add(lb);
 	}

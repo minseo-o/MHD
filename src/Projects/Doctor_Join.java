@@ -10,7 +10,7 @@ public class Doctor_Join extends CommonFrame {
 		
 	    
 		
-		JLabel lb = new JLabel(getIcon("images/dc_join.png", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT));
+		JLabel lb = new JLabel(getIcon("images/Doctor_Join.png", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT));
 	      lb.setBounds(0, 0, Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
 	      add(lb);
 	}
