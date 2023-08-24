@@ -40,11 +40,11 @@ public class Patient_Login extends CommonFrame{
 		
 		login_main_btn.addActionListener(e -> {
 	    	dispose();
-	        new ().setVisible(true);
-	       });
+	        new Patient_Profile().setVisible(true);
+	      });
 	     joinbtn.addActionListener(e -> {
 		    	dispose();
 		        new Patient_Join().setVisible(true);
-		       });
+		  });
 	}
 }

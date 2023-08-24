@@ -6,7 +6,6 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class Doctor_Write extends CommonFrame{
@@ -95,6 +94,26 @@ public class Doctor_Write extends CommonFrame{
 		JLabel lb = new JLabel(getIcon("images/Doctor_Write.png", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT));//배경 설정 !! 주의 배경 설정은 버튼 아래에다가 넣을 것 !
 	      lb.setBounds(0, 0, Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
 	      add(lb);
+	    //버튼 클릭하면 ... 
+	     Submitbtn.addActionListener(e -> {
+		   dispose();
+		   new ().setVisible(true);
+	     });
+	     
+	     Writebtn.addActionListener(e -> {
+			   dispose();
+			   new Doctor_Write().setVisible(true);
+		 });
+	     
+	     Showbtn.addActionListener(e -> {
+			   dispose();
+			   new ().setVisible(true);
+		 });
+	     
+			Profilebtn.addActionListener(e -> {
+			   dispose();
+			   new ().setVisible(true);
+		 });	     
 	}
 
 }
