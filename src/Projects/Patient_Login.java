@@ -5,9 +5,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 public class Patient_Login extends CommonFrame{
+	
 	JButton loginbtn = new JButton(new ImageIcon("images/Login_check.png"));
 	JButton joinbtn = new JButton(new ImageIcon("images/Pt_join_Bt.png"));
 	JButton login_main_btn = new JButton(new ImageIcon("images/Patient_login_bt.png"));
+	
 	public Patient_Login() {
 		super("Patient_Login", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
 		

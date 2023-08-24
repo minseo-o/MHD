@@ -24,6 +24,7 @@ public class Doctor_Join extends CommonFrame {
 	public Doctor_Join() {
 		super("Doctor_Join", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
 		
+		//버튼 설정 
 		loginbtn.setBorderPainted(false);
 		loginbtn.setContentAreaFilled(false);
 		loginbtn.setFocusPainted(false);
@@ -45,11 +46,11 @@ public class Doctor_Join extends CommonFrame {
 		Join_main_btn.setBounds(810,562,143,60);
 		add(Join_main_btn);
 		
+		//textField 설정 
 		Nametx.setBounds(579,131,374,57);
 		Nametx.revalidate();
 		Nametx.setBackground(Color.decode("#CACACA"));
 		Nametx.setBorder(null);
-		
 		Nametx.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
         add(Nametx);
         
@@ -57,7 +58,6 @@ public class Doctor_Join extends CommonFrame {
 		IDtx.revalidate();
 		IDtx.setBackground(Color.decode("#CACACA"));
 		IDtx.setBorder(null);
-		
         IDtx.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
         add(IDtx);
         
@@ -77,18 +77,18 @@ public class Doctor_Join extends CommonFrame {
         Emailtx.revalidate();
         Emailtx.setBackground(Color.decode("#CACACA"));
         Emailtx.setBorder(null);
-		
         Emailtx.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
         add(Emailtx);
 		
 		JLabel lb = new JLabel(getIcon("images/Doctor_Join.png", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT));
 	      lb.setBounds(0, 0, Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
 	      add(lb);
-	      loginbtn.addActionListener(e -> {
+	      
+	    loginbtn.addActionListener(e -> {
 		    	dispose();
 		        new Doctor_Login().setVisible(true);
 		       });
-	      Join_main_btn.addActionListener(e -> {
+	    Join_main_btn.addActionListener(e -> {
 		    	dispose();
 		        new Doctor_Login().setVisible(true);
 		       });
