@@ -38,7 +38,7 @@ public class Patient_Login extends CommonFrame{
 		
 		login_main_btn.addActionListener(e -> {
 	    	dispose();
-	        new Patient_Check().setVisible(true);
+	        new ().setVisible(true);
 	       });
 	     joinbtn.addActionListener(e -> {
 		    	dispose();
