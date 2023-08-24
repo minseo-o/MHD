@@ -8,21 +8,21 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class Doctor_Write extends CommonFrame{
-	
-	//버튼 선언
+public class Doctor_Write extends CommonFrame {
+
+	// 버튼 선언
 	JButton Submitbtn = new JButton(new ImageIcon("images/Doctor_finish_Bt.png"));
-    JButton Writebtn = new JButton(new ImageIcon("images/dc_write_ch_bt.png"));
-    JButton Showbtn = new JButton(new ImageIcon("images/dc_show_pt.png"));
-    JButton Profilebtn = new JButton(new ImageIcon("images/dc_pf_bt.png"));
-    
-    //textField 선언 
-  	JTextField Daytx = new JTextField();
-  	JTextField Doctornametx = new JTextField();
-  	JTextField departmenttx= new JTextField();
-  	JTextField recordtx = new JTextField();
-  	JTextField recipetx = new JTextField();
-  	
+	JButton Writebtn = new JButton(new ImageIcon("images/dc_write_ch_bt.png"));
+	JButton Showbtn = new JButton(new ImageIcon("images/dc_show_pt.png"));
+	JButton Profilebtn = new JButton(new ImageIcon("images/dc_pf_bt.png"));
+
+	// textField 선언
+	JTextField Daytx = new JTextField();
+	JTextField Doctornametx = new JTextField();
+	JTextField departmenttx = new JTextField();
+	JTextField recordtx = new JTextField();
+	JTextField recipetx = new JTextField();
+
 	public Doctor_Write() {
 		super("Doctor_Write", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
 		
