@@ -53,6 +53,7 @@ public class Doctor_Login extends CommonFrame {
 		IDtx.setBorder(null); // textField 테두리 삭제
 		IDtx.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
 		add(IDtx);// textField 추가
+		
 
 		PWtx.setBounds(496, 389, 373, 57);
 		PWtx.revalidate();

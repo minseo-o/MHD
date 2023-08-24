@@ -118,7 +118,7 @@ public class Patient_Profile_Edit extends CommonFrame {
 		add(lb);
 		Submitbtn.addActionListener(e -> {
 			dispose();
-		
+			new Patient_Profile().setVisible(true);
 		});
 		Profilebtn.addActionListener(e -> {
 			dispose();

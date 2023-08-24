@@ -6,12 +6,13 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Doctor_Write extends CommonFrame {
 
 	// 버튼 선언
-	JButton Submitbtn = new JButton(new ImageIcon("images/Doctor_Submit_Bt_Bt.png"));
+	JButton Submitbtn = new JButton(new ImageIcon("images/Doctor_Submit_Bt.png"));
 	JButton Writebtn = new JButton(new ImageIcon("images/dc_write_ch_bt.png"));
 	JButton Showbtn = new JButton(new ImageIcon("images/dc_show_pt.png"));
 	JButton Profilebtn = new JButton(new ImageIcon("images/dc_pf_bt.png"));
@@ -20,8 +21,8 @@ public class Doctor_Write extends CommonFrame {
 	JTextField Daytx = new JTextField();
 	JTextField Doctornametx = new JTextField();
 	JTextField departmenttx = new JTextField();
-	JTextField recordtx = new JTextField();
-	JTextField recipetx = new JTextField();
+	JTextArea recordtx = new JTextArea();
+	JTextArea recipetx = new JTextArea();
 
 	public Doctor_Write() {
 		super("Doctor_Write", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
@@ -83,7 +84,8 @@ public class Doctor_Write extends CommonFrame {
 		recordtx.setBorder(null); // textField 테두리 삭제 
 		recordtx.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
 		add(recordtx);//textField 추가 
-		
+		recordtx.setLineWrap(true); // Enables automatic line wrapping
+		recordtx.setWrapStyleWord(true); // Wraps at word boundaries
 		recipetx.setBounds(424,472,820,154); 
 		recipetx.revalidate();// 왜 추가 했지? 자동 레이아웃 설정 가능하게 하는 코드 
 		recipetx.setBackground(Color.decode("#CACACA"));// textField 색상 변경
@@ -97,7 +99,7 @@ public class Doctor_Write extends CommonFrame {
 	    //버튼 클릭하면 ... 
 	     Submitbtn.addActionListener(e -> {
 		   dispose();
-		   new Doctor_Show().setVisible(true);
+		   new Doctor_Write().setVisible(true);
 	     });
 	     
 	     Writebtn.addActionListener(e -> {
