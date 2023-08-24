@@ -41,9 +41,6 @@ public class Patient_Check extends CommonFrame {
 		PatientIDtx.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
         add(PatientIDtx);//textField 추가 
         
-       
-	    
-		
 		JLabel lb = new JLabel(getIcon("images/Doctor_Patient_Check.png", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT));
 	      lb.setBounds(0, 0, Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
 	      add(lb);
