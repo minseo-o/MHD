@@ -46,12 +46,12 @@ public class Patient_Profile extends CommonFrame {
 	     
 	     Showbtn.addActionListener(e -> {
 			   dispose();
-			   new ().setVisible(true);
+			   new Patient_Show().setVisible(true);
 		 });
 	     
 	     Profileeditbtn.addActionListener(e -> {
 			   dispose();
-			   new ().setVisible(true);
+			   new Patient_Show().setVisible(true);
 		 });		
 	}
 }
