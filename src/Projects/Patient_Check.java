@@ -48,7 +48,7 @@ public class Patient_Check extends CommonFrame {
 	    //버튼 클릭하면 ... 
 	      submitbtn.addActionListener(e -> {
 		    	dispose();
-		        new ().setVisible(true);
+		        new Doctor_Write().setVisible(true);
 		       });
 		    
 	}
