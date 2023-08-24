@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 public class Doctor_Write extends CommonFrame {
 
 	// 버튼 선언
-	JButton Submitbtn = new JButton(new ImageIcon("images/Doctor_finish_Bt.png"));
+	JButton Submitbtn = new JButton(new ImageIcon("images/Doctor_Submit_Bt_Bt.png"));
 	JButton Writebtn = new JButton(new ImageIcon("images/dc_write_ch_bt.png"));
 	JButton Showbtn = new JButton(new ImageIcon("images/dc_show_pt.png"));
 	JButton Profilebtn = new JButton(new ImageIcon("images/dc_pf_bt.png"));
@@ -97,7 +97,7 @@ public class Doctor_Write extends CommonFrame {
 	    //버튼 클릭하면 ... 
 	     Submitbtn.addActionListener(e -> {
 		   dispose();
-		   new ().setVisible(true);
+		   new Doctor_Show().setVisible(true);
 	     });
 	     
 	     Writebtn.addActionListener(e -> {
@@ -107,12 +107,12 @@ public class Doctor_Write extends CommonFrame {
 	     
 	     Showbtn.addActionListener(e -> {
 			   dispose();
-			   new ().setVisible(true);
+			   new Doctor_Show().setVisible(true);
 		 });
 	     
 			Profilebtn.addActionListener(e -> {
 			   dispose();
-			   new ().setVisible(true);
+			   new Doctor_Show().setVisible(true);
 		 });	     
 	}
 
