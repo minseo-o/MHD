@@ -67,7 +67,7 @@ public class Doctor_Show extends CommonFrame {
 	     
 			Profilebtn.addActionListener(e -> {
 			   dispose();
-			   new Doctor_Show().setVisible(true);
+			   new Doctor_Profile().setVisible(true);
 		 });	   
 	}
 }
