@@ -5,13 +5,14 @@ import java.awt.Font;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class Patient_Profile_Edit extends CommonFrame {
 	// 버튼 선언
 	JButton Submitbtn = new JButton(new ImageIcon("images/Patient_Submit_Bt.png"));
-	JButton Profilebtn = new JButton(new ImageIcon("images/pt_pf_b.png"));
+	JButton Profilebtn = new JButton(new ImageIcon("images/pt_pf_bt.png"));
 	JButton Showbtn = new JButton(new ImageIcon("images/pt_show_pt.png"));
 	JButton Profileeditbtn = new JButton(new ImageIcon("images/pt_pf_edit_ch_bt.png"));
 	// textField 선언
@@ -19,7 +20,8 @@ public class Patient_Profile_Edit extends CommonFrame {
 	JTextField IDtx = new JTextField();
 	JTextField birthtx = new JTextField();
 	JTextField agetx = new JTextField();
-	JTextField sextx = new JTextField();
+	JCheckBox girl = new JCheckBox("여성");
+	JCheckBox boy= new JCheckBox("남성");
 	JTextField addtx = new JTextField();
 	JTextField heighttx = new JTextField();
 	JTextField weighttx = new JTextField();
@@ -85,12 +87,20 @@ public class Patient_Profile_Edit extends CommonFrame {
 		agetx.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
 		add(agetx);// textField 추가
 		
-		sextx.setBounds(463,387,452,42);
-		sextx.revalidate();// 왜 추가 했지? 자동 레이아웃 설정 가능하게 하는 코드
-		sextx.setBackground(Color.decode("#CACACA"));// textField 색상 변경
-		sextx.setBorder(null); // textField 테두리 삭제
-		sextx.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
-		add(sextx);// textField 추가
+		girl.setBounds(463,380,80,42);
+		girl.revalidate();// 왜 추가 했지? 자동 레이아웃 설정 가능하게 하는 코드
+		girl.setBorderPainted(false);
+		girl.setContentAreaFilled(false);
+		girl.setFocusPainted(false);
+		girl.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
+		add(girl);
+		boy.setBounds(600,380,80,42);
+		boy.revalidate();// 왜 추가 했지? 자동 레이아웃 설정 가능하게 하는 코드
+		boy.setBorderPainted(false);
+		boy.setContentAreaFilled(false);
+		boy.setFocusPainted(false);
+		boy.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
+		add(boy);
 		
 		addtx.setBounds(463,451,452,42);
 		addtx.revalidate();// 왜 추가 했지? 자동 레이아웃 설정 가능하게 하는 코드

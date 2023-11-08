@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -23,6 +24,7 @@ public class Doctor_Write extends CommonFrame {
 	JTextField departmenttx = new JTextField();
 	JTextArea recordtx = new JTextArea();
 	JTextArea recipetx = new JTextArea();
+	
 
 	public Doctor_Write() {
 		super("Doctor_Write", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
@@ -86,20 +88,22 @@ public class Doctor_Write extends CommonFrame {
 		add(recordtx);//textField 추가 
 		recordtx.setLineWrap(true); // Enables automatic line wrapping
 		recordtx.setWrapStyleWord(true); // Wraps at word boundaries
+		
 		recipetx.setBounds(424,472,820,154); 
 		recipetx.revalidate();// 왜 추가 했지? 자동 레이아웃 설정 가능하게 하는 코드 
 		recipetx.setBackground(Color.decode("#CACACA"));// textField 색상 변경
 		recipetx.setBorder(null); // textField 테두리 삭제 
 		recipetx.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
 		add(recipetx);//textField 추가 
+		recipetx.setLineWrap(true); // Enables automatic line wrapping
+		recipetx.setWrapStyleWord(true); // Wraps at word boundaries
 		
 		JLabel lb = new JLabel(getIcon("images/Doctor_Write.png", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT));//배경 설정 !! 주의 배경 설정은 버튼 아래에다가 넣을 것 !
 	      lb.setBounds(0, 0, Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
 	      add(lb);
 	    //버튼 클릭하면 ... 
 	     Submitbtn.addActionListener(e -> {
-		   dispose();
-		   new Doctor_Write().setVisible(true);
+		   signUp();
 	     });
 	     
 	     Writebtn.addActionListener(e -> {
@@ -117,5 +121,25 @@ public class Doctor_Write extends CommonFrame {
 			   new Doctor_Profile().setVisible(true);
 		 });	     
 	}
+	private void signUp() {
+        String Day = Daytx.getText();
+        String Doctorname = Doctornametx.getText();
+        String department = departmenttx.getText();
+        String record = recordtx.getText();
+        String recipe = recipetx.getText();
+        
+
+        // JDBC를 사용하여 MySQL 데이터베이스에 연결
+        // DatabaseConnection 클래스로부터 Connection을 가져옴
+        try {
+        	update("insert into  medical values ( ?, ?, ?, ?, ?,?)",id_check,  Day, Doctorname, department, record, recipe);
+        	JOptionPane.showMessageDialog(this, "업데이트 성공!");
+        	dispose();
+        	new Doctor_Write().setVisible(true);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, "업데이트 실패!");
+			e.printStackTrace();
+		}
+    }
 
 }

@@ -2,6 +2,14 @@ package Projects;
 
 import java.sql.DriverManager;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 public class DatabaseConnection {
 	public DatabaseConnection() throws Exception {
 		var con = DriverManager.getConnection("jdbc:mysql://localhost:3308/?serverTimezone=UTC", "root", "0000");
@@ -10,11 +18,6 @@ public class DatabaseConnection {
 		stmt.execute("SET GLOBAL local_infile = 1");
 
 		System.out.println("connector 연결");
-
-		stmt.execute("DROP SCHEMA IF EXISTS `mdh`");
-		stmt.execute("CREATE SCHEMA `mdh` DEFAULT CHARACTER SET utf8 ;\r\n");
-
-		System.out.println("mdh schema 생성");
-
+		
 	}
 }

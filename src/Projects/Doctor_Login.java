@@ -7,6 +7,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -19,7 +20,7 @@ public class Doctor_Login extends CommonFrame {
 
 	// textField 선언
 	JTextField IDtx = new JTextField();
-	JPasswordField PWtx = new JPasswordField(); // password 입력할때 글자가 •이걸로 표현 됨
+	JTextField PWtx = new JTextField(); // password 입력할때 글자가 •이걸로 표현 됨
 
 	public Doctor_Login() {
 		super("Doctor_login", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
@@ -71,11 +72,34 @@ public class Doctor_Login extends CommonFrame {
 		// 버튼 클릭하면 ...
 		login_main_btn.addActionListener(e -> {
 			dispose();
-			new Patient_Check().setVisible(true);
+			signUp();
+			
 		});
 		joinbtn.addActionListener(e -> {
 			dispose();
 			new Doctor_Join().setVisible(true);
 		});
 	}
+	private void signUp() {
+		String id = IDtx.getText();
+        String password = PWtx.getText();
+		
+        try {
+			var rs = getResult("SELECT * FROM doctor_member WHERE id = ? AND password = ?", id, password);
+			if(rs.next()) {
+				JOptionPane.showMessageDialog(this, "로그인 성공!");
+				new Patient_Check().setVisible(true);
+			}
+			
+			else {
+				JOptionPane.showMessageDialog(this, "로그인 실패,, 다시 ");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
 }

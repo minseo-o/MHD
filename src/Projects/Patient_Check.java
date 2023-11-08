@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class Patient_Check extends CommonFrame {
@@ -47,9 +48,32 @@ public class Patient_Check extends CommonFrame {
 
 		// 버튼 클릭하면 ...
 		submitbtn.addActionListener(e -> {
-			dispose();
-			new Doctor_Write().setVisible(true);
+			
+			signUp();
 		});
 
+	}
+	private void signUp() {
+		String id = PatientIDtx.getText();
+        String name = PatientNametx.getText();
+		
+        try {
+			var rs = getResult("SELECT * FROM Patient_member WHERE id = ? AND name = ?", id, name);
+			if(rs.next()) {
+				id_check = id;
+				
+				new Doctor_Write().setVisible(true);
+				
+			}
+			
+			else {
+				JOptionPane.showMessageDialog(this, "확인 실패 다시 입력하세요  ");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
 }

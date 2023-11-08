@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -17,8 +18,7 @@ public class Patient_Join extends CommonFrame {
 
 	JTextField Nametx = new JTextField();
 	JTextField IDtx = new JTextField();
-	JPasswordField PWtx = new JPasswordField();
-	JPasswordField PWChecktx = new JPasswordField();
+	JTextField PWtx = new JTextField();
 	JTextField Emailtx = new JTextField();
 
 	public Patient_Join() {
@@ -45,7 +45,7 @@ public class Patient_Join extends CommonFrame {
 		Join_main_btn.setBounds(810, 562, 143, 60);
 		add(Join_main_btn);
 
-		Nametx.setBounds(579, 131, 374, 57);
+		Nametx.setBounds(579, 195, 374, 57);
 		Nametx.revalidate();
 		Nametx.setBackground(Color.decode("#CACACA"));
 		Nametx.setBorder(null);
@@ -53,27 +53,23 @@ public class Patient_Join extends CommonFrame {
 		Nametx.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
 		add(Nametx);
 
-		IDtx.setBounds(579, 223, 374, 57);
+		IDtx.setBounds(579, 275, 374, 57);
 		IDtx.revalidate();
 		IDtx.setBackground(Color.decode("#CACACA"));
 		IDtx.setBorder(null);
-
 		IDtx.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
 		add(IDtx);
 
-		PWtx.setBounds(579, 303, 374, 57);
+		PWtx.setBounds(579, 360, 374, 57);
 		PWtx.revalidate();
 		PWtx.setBackground(Color.decode("#CACACA"));
+		PWtx.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
 		PWtx.setBorder(null);
 		add(PWtx);
 
-		PWChecktx.setBounds(579, 390, 374, 57);
-		PWChecktx.revalidate();
-		PWChecktx.setBackground(Color.decode("#CACACA"));
-		PWChecktx.setBorder(null);
-		add(PWChecktx);
 
-		Emailtx.setBounds(579, 470, 374, 57);
+
+		Emailtx.setBounds(579, 440, 374, 57);
 		Emailtx.revalidate();
 		Emailtx.setBackground(Color.decode("#CACACA"));
 		Emailtx.setBorder(null);
@@ -87,12 +83,33 @@ public class Patient_Join extends CommonFrame {
 		loginbtn.addActionListener(e -> {
 			dispose();
 			new Patient_Login().setVisible(true);
+		
+			
 		});
 
 		Join_main_btn.addActionListener(e -> {
-			dispose();
-			new Patient_Login().setVisible(true);
+			signUp();
 		});
 
 	}
+	private void signUp() {
+        String id = IDtx.getText();
+        String password = PWtx.getText();
+        String email = Emailtx.getText();
+        String name = Nametx.getText();
+        
+        System.out.println(id + " " + password + " " + email + " " + name);
+      
+        // JDBC를 사용하여 MySQL 데이터베이스에 연결
+        // DatabaseConnection 클래스로부터 Connection을 가져옴
+        try {
+        	update("insert into patient_member values ( ?, ?, ?, ?)", id, password, name,email);
+        	new Patient_Login().setVisible(true);
+        	update("insert into medical (id) values (?)", id);
+        	update("insert into patient_info (id , name) values (?, ?)", id , name);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, "회원가입 실패!");
+			e.printStackTrace();
+		}
+    }
 }
