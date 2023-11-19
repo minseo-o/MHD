@@ -22,6 +22,7 @@ public class CommonFrame extends JFrame {
 	static Statement stmt;
 	static String id_check;
 
+
 	
 	static {
 		try {

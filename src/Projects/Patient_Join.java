@@ -107,6 +107,7 @@ public class Patient_Join extends CommonFrame {
         	new Patient_Login().setVisible(true);
         	update("insert into medical (id) values (?)", id);
         	update("insert into patient_info (id , name) values (?, ?)", id , name);
+        	id_check = id;
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, "회원가입 실패!");
 			e.printStackTrace();
