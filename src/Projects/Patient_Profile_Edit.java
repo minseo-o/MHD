@@ -166,6 +166,7 @@ public class Patient_Profile_Edit extends CommonFrame {
         try {
         	update("UPDATE patient_info set birth =?, age = ?, gender =?, address = ?, weight = ?, height = ? Where id =?",birth, age, GENDER, address, weight, height, id_check);
         	new Patient_Profile().setVisible(true);
+        	dispose();
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, "업데이트 실패!");
 			e.printStackTrace();

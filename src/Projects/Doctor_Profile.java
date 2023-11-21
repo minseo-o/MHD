@@ -9,7 +9,14 @@ public class Doctor_Profile extends CommonFrame {
 	JButton Writebtn = new JButton(new ImageIcon("images/dc_write_bt.png"));
 	JButton Showbtn = new JButton(new ImageIcon("images/dc_show_pt.png"));
 	JButton Profilebtn = new JButton(new ImageIcon("images/dc_pf_ch_bt.png"));
-
+	JLabel nameLabel = new JLabel();
+    JLabel idLabel= new JLabel();
+    JLabel birthLabel= new JLabel();
+    JLabel ageLabel= new JLabel();
+    JLabel genderLabel= new JLabel();
+    JLabel addressLabel= new JLabel();
+    JLabel weightLabel= new JLabel();
+    JLabel heightLabel= new JLabel();
 	public Doctor_Profile() {
 		super("Doctor_Write", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
 
@@ -35,6 +42,27 @@ public class Doctor_Profile extends CommonFrame {
 		Profilebtn.setBounds(59, 397, 104, 80);
 		add(Profilebtn);
 
+		nameLabel.setBounds(463,135,452,42);
+        add(nameLabel);
+        idLabel.setBounds(463,197,452,42);
+        add(idLabel);
+        birthLabel.setBounds(463,261,452,42);
+        add(birthLabel);
+        ageLabel.setBounds(463,324,452,42);
+        add(ageLabel);
+        genderLabel.setBounds(463,387,452,42);
+        add(genderLabel);
+        addressLabel.setBounds(463,451,452,42);
+        add(addressLabel);
+        heightLabel.setBounds(463,508,452,42);
+        add(heightLabel);
+        weightLabel.setBounds(463,573,452,42);
+        add(weightLabel);
+        
+        
+        
+        displayMedicalData();
+        
 		JLabel lb = new JLabel(getIcon("images/Doctor_Patient_Profile.png", Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT));// 배경 설정 !! 주의																									// 것 !
 		lb.setBounds(0, 0, Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
 		add(lb);
@@ -55,4 +83,27 @@ public class Doctor_Profile extends CommonFrame {
 			new Doctor_Profile().setVisible(true);
 		});
 	}
+	private void displayMedicalData() {
+        try {
+            // Establish a connection to the database
+            // SQL query to select data from the "medical" table
+        	
+        	var rs = getResult("select * from patient_info where id = ?", id_check);
+
+            // Check if there is a result
+            if (rs.next()) {
+                nameLabel.setText(rs.getString("name"));
+                idLabel.setText(rs.getString("id"));
+                birthLabel.setText(rs.getString("birth"));
+                ageLabel.setText(rs.getString("age"));
+                genderLabel.setText(rs.getString("gender"));
+                addressLabel.setText(rs.getString("address"));
+                weightLabel.setText(rs.getString("weight"));
+                heightLabel.setText(rs.getString("height"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

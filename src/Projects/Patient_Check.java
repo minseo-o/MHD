@@ -63,7 +63,7 @@ public class Patient_Check extends CommonFrame {
 				id_check = id;
 				
 				new Doctor_Write().setVisible(true);
-				
+				dispose();
 			}
 			
 			else {

@@ -59,6 +59,7 @@ public class Doctor_Login extends CommonFrame {
 		PWtx.setBounds(496, 389, 373, 57);
 		PWtx.revalidate();
 		PWtx.setBackground(Color.decode("#CACACA"));
+		PWtx.setFont(new Font("조선신명조", Font.PLAIN, 18)); // 입력받을 때, 문자 크기 및 폰트 설정
 		PWtx.setBorder(null);
 		add(PWtx);
 
